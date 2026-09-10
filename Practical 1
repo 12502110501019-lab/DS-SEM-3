@@ -3,7 +3,7 @@ using namespace std;
 
 int a[100], n = 0;
 
-// Traversal
+
 void display()
 {
     cout << "Array elements: ";
@@ -12,7 +12,7 @@ void display()
     cout << endl;
 }
 
-// Insertion
+
 void insertElement()
 {
     int pos, value;
@@ -32,7 +32,7 @@ void insertElement()
     cout << "Element inserted successfully.\n";
 }
 
-// Deletion
+
 void deleteElement()
 {
     int pos;
@@ -48,7 +48,7 @@ void deleteElement()
     cout << "Element deleted successfully.\n";
 }
 
-// Search
+
 void searchElement()
 {
     int value, found = 0;
@@ -109,10 +109,6 @@ int main()
 
             case 4:
                 searchElement();
-                break;
-
-            case 5:
-                cout << "Program ended.\n";
                 break;
 
             default:
