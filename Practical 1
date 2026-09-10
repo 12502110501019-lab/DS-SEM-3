@@ -1,0 +1,125 @@
+#include <iostream>
+using namespace std;
+
+int a[100], n = 0;
+
+// Traversal
+void display()
+{
+    cout << "Array elements: ";
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+    cout << endl;
+}
+
+// Insertion
+void insertElement()
+{
+    int pos, value;
+
+    cout << "Enter position: ";
+    cin >> pos;
+
+    cout << "Enter value: ";
+    cin >> value;
+
+    for (int i = n; i >= pos; i--)
+        a[i] = a[i - 1];
+
+    a[pos - 1] = value;
+    n++;
+
+    cout << "Element inserted successfully.\n";
+}
+
+// Deletion
+void deleteElement()
+{
+    int pos;
+
+    cout << "Enter position to delete: ";
+    cin >> pos;
+
+    for (int i = pos - 1; i < n - 1; i++)
+        a[i] = a[i + 1];
+
+    n--;
+
+    cout << "Element deleted successfully.\n";
+}
+
+// Search
+void searchElement()
+{
+    int value, found = 0;
+
+    cout << "Enter element to search: ";
+    cin >> value;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == value)
+        {
+            cout << "Element found at position " << i + 1 << endl;
+            found = 1;
+            break;
+        }
+    }
+
+    if (found == 0)
+        cout << "Element not found.\n";
+}
+
+int main()
+{
+    int choice;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter array elements:\n";
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    do
+    {
+        cout << "\n--- ARRAY OPERATIONS ---\n";
+        cout << "1. Insertion\n";
+        cout << "2. Deletion\n";
+        cout << "3. Traversal\n";
+        cout << "4. Search\n";
+        cout << "5. Exit\n";
+
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                insertElement();
+                break;
+
+            case 2:
+                deleteElement();
+                break;
+
+            case 3:
+                display();
+                break;
+
+            case 4:
+                searchElement();
+                break;
+
+            case 5:
+                cout << "Program ended.\n";
+                break;
+
+            default:
+                cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
